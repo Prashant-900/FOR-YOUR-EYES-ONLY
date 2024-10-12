@@ -3,251 +3,210 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lovely Romantic Game</title>
+    <title>Masterpiece Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
-        /* General Styling */
-        body {
-            font-family: 'Comic Sans MS', cursive, sans-serif;
-            background-color: #fddde6;
+        * {
             margin: 0;
             padding: 0;
-            text-align: center;
-            background-image: url('https://example.com/lovely-background.jpg'); /* Use any romantic background image URL */
-            background-size: cover;
-            background-position: center;
+            box-sizing: border-box;
         }
 
-        h1, h2 {
-            font-family: 'Dancing Script', cursive; /* Elegant romantic font */
-            color: #ff6b81;
-            margin-bottom: 20px;
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ff6b81, #ffcc70);
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        h1 {
-            font-size: 3em;
-        }
-
-        h2 {
-            font-size: 1.8em;
-        }
-
-        button {
-            padding: 10px 20px;
-            font-size: 1.5em;
-            background-color: #ff6b81;
-            color: white;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        button:hover {
-            background-color: #ff4757;
-        }
-
-        /* Lovely bubble-shaped input fields */
-        .input-group {
+        header {
+            height: 100vh;
+            background: url('https://source.unsplash.com/1600x900/?art,creative') no-repeat center center/cover;
             display: flex;
+            flex-direction: column;
             justify-content: space-between;
-            margin: 20px 0;
-            align-items: center;
+            position: relative;
         }
 
-        .input-group label {
-            flex: 1;
-            text-align: left;
-            margin-right: 20px;
+        nav {
+            display: flex;
+            justify-content: flex-end;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+        }
+
+        nav ul {
+            list-style: none;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
             color: #ff6b81;
-            font-size: 1.2em;
         }
 
-        .input-group input {
-            flex: 2;
-            padding: 10px;
-            border-radius: 50px;
-            border: 2px solid #ff6b81;
-            font-size: 1em;
+        .hero-content {
             text-align: center;
-            background-color: #ffe4e9;
+            color: white;
+            margin-top: auto;
+            margin-bottom: auto;
+            animation: fadeIn 1s ease-in-out;
         }
 
-        #done-btn {
-            margin-top: 30px;
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            animation: slideIn 1s ease-in-out;
+        }
+
+        .cta-button {
+            background-color: #ff6b81;
             padding: 15px 30px;
+            text-decoration: none;
+            color: white;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
 
-        /* Stickers */
-        .sticker {
+        .cta-button:hover {
+            background-color: #ff4757;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transform: translateY(-3px);
+        }
+
+        .cta-button::after {
+            content: '';
             position: absolute;
-            width: 100px;
-            height: auto;
+            width: 300%;
+            height: 300%;
+            background: rgba(255, 255, 255, 0.2);
+            top: 50%;
+            left: 50%;
+            border-radius: 50%;
+            transition: all 0.5s ease;
+            z-index: 0;
+            transform: translate(-50%, -50%) scale(0);
         }
 
-        /* Stickers for Landing Page */
-        #landing.active .sticker {
-            display: block;
-        }
-        #sticker1-landing { top: 10%; left: 10%; transform: rotate(-15deg); }
-        #sticker2-landing { top: 10%; right: 10%; transform: rotate(15deg); }
-        #sticker3-landing { bottom: 10%; left: 15%; transform: rotate(-10deg); }
-        #sticker4-landing { bottom: 10%; right: 15%; transform: rotate(10deg); }
-
-        /* Stickers for Questions Page */
-        #questions-page.active .sticker {
-            display: block;
-        }
-        #sticker1-questions { bottom: 10%; left: 20%; transform: rotate(-10deg); }
-        #sticker2-questions { bottom: 10%; left: 45%; transform: rotate(0deg); }
-        #sticker3-questions { bottom: 10%; right: 20%; transform: rotate(10deg); }
-
-        /* Stickers for Response Page */
-        #response-page.active .sticker {
-            display: block;
+        .cta-button:hover::after {
+            transform: translate(-50%, -50%) scale(1);
         }
 
-        /* Sticker at the bottom for the Response Page */
-        #response-bottom-sticker {
-            position: fixed;
-            bottom: 0;
+        .scroll-indicator {
+            text-align: center;
+            color: white;
+            position: absolute;
+            bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
-            width: 150px;
-            height: auto;
         }
 
-        /* Page Visibility */
-        #landing, #questions-page, #response-page {
-            display: none;
+        .scroll-indicator p {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
         }
 
-        #landing {
+        .scroll-indicator span {
             display: block;
-            margin-top: 20%;
+            width: 30px;
+            height: 30px;
+            border-bottom: 3px solid white;
+            border-right: 3px solid white;
+            transform: rotate(45deg);
+            margin: auto;
+            animation: scroll-down 1.5s infinite;
         }
 
-        /* Response Page Styling */
-        #response-page h1 {
-            font-family: 'Dancing Script', cursive;
-            color: #ff6b81;
+        @keyframes scroll-down {
+            0% {
+                opacity: 1;
+                transform: rotate(45deg) translate(0, 0);
+            }
+            50% {
+                opacity: 0.5;
+                transform: rotate(45deg) translate(0, 10px);
+            }
+            100% {
+                opacity: 0;
+                transform: rotate(45deg) translate(0, 20px);
+            }
         }
 
-        /* Styling the response text to match the h1 on the Response Page */
-        #response-text {
-            font-family: 'Dancing Script', cursive;
-            color: #ff6b81;
-            font-size: 2em;
-            margin-top: 20px;
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
     </style>
 </head>
 <body>
-
-<!-- Landing Page -->
-<div id="landing">
-    <h1>Yoo sup!!!</h1>
-    <h2>Let's begin the game!?</h2>
-    <button id="yes-btn">Yes lesgo!!</button>
-    <button id="no-btn">Nahh nope</button>
-
-    <!-- 4 Romantic Stickers for Landing Page -->
-    <img src="https://cdn-icons-png.flaticon.com/256/4288/4288991.png" class="sticker" id="sticker1-landing" alt="Couple Sticker 1">
-    <img src="https://cdn-icons-png.flaticon.com/256/4289/4289001.png" class="sticker" id="sticker2-landing" alt="Couple Sticker 2">
-    <img src="https://cdn-icons-png.flaticon.com/256/4289/4289414.png" class="sticker" id="sticker3-landing" alt="Couple Sticker 3">
-    <img src="https://cdn-icons-png.flaticon.com/256/4289/4289416.png" class="sticker" id="sticker4-landing" alt="Couple Sticker 4">
-</div>
-
-<!-- Questions Page -->
-<div id="questions-page">
-    <h1>Answer these romantic questions!</h1>
-    <div class="input-group">
-        <label for="q1">1. What is my full name!?</label>
-        <input type="text" id="q1" placeholder="Type here...">
-    </div>
-    <div class="input-group">
-        <label for="q2">2. What do you think about me!?</label>
-        <input type="text" id="q2" placeholder="Type here...">
-    </div>
-    <div class="input-group">
-        <label for="q3">3. How many months are we together!?</label>
-        <input type="text" id="q3" placeholder="Type here...">
-    </div>
-    <div class="input-group">
-        <label for="q4">4. Do you feel happy!? 💖</label>
-        <input type="text" id="q4" placeholder="Type here...">
-    </div>
-    <div class="input-group">
-        <label for="q5">5. What makes you smile the most!?</label>
-        <input type="text" id="q5" placeholder="Type here...">
-    </div>
-    <button id="done-btn">Done</button>
-
-    <!-- 3 Romantic Stickers for Questions Page -->
-    <img src="https://cdn-icons-png.flaticon.com/256/4288/4288991.png" class="sticker" id="sticker1-questions" alt="Sticker 1">
-    <img src="https://cdn-icons-png.flaticon.com/256/4289/4289001.png" class="sticker" id="sticker2-questions" alt="Sticker 2">
-    <img src="https://cdn-icons-png.flaticon.com/256/4289/4289414.png" class="sticker" id="sticker3-questions" alt="Sticker 3">
-</div>
-
-<!-- Response Page -->
-<div id="response-page">
-    <h1>Here are your responses!</h1>
-    <p id="response-text"></p>
-
-    <!-- Sticker at the bottom -->
-    <img src="https://cdn-icons-png.flaticon.com/256/4289/4289416.png" class="sticker" id="response-bottom-sticker" alt="Sticker Bottom">
-</div>
-
-<script>
-// Landing Page Buttons
-const yesBtn = document.getElementById('yes-btn');
-const noBtn = document.getElementById('no-btn');
-const landingDiv = document.getElementById('landing');
-const questionsPage = document.getElementById('questions-page');
-const responsePage = document.getElementById('response-page');
-const doneBtn = document.getElementById('done-btn');
-const responseText = document.getElementById('response-text');
-
-// Randomize "Nahh nope" button position
-noBtn.addEventListener('mouseover', function() {
-    const randomX = Math.random() * (window.innerWidth - noBtn.clientWidth);
-    const randomY = Math.random() * (window.innerHeight - noBtn.clientHeight);
-    noBtn.style.position = 'absolute';
-    noBtn.style.left = `${randomX}px`;
-    noBtn.style.top = `${randomY}px`;
-});
-
-// "Yes lesgo!!" button - Move to Questions Page
-yesBtn.addEventListener('click', function() {
-    landingDiv.style.display = 'none';
-    questionsPage.style.display = 'block';
-});
-
-// "Done" button - Move to Response Page
-doneBtn.addEventListener('click', function() {
-    const responses = [
-        document.getElementById('q1').value,
-        document.getElementById('q2').value,
-        document.getElementById('q3').value,
-        document.getElementById('q4').value,
-        document.getElementById('q5').value
-    ];
-
-    let loveCount = 0;
-    let happyCount = 0;
-
-    responses.forEach(response => {
-        const lowerResponse = response.toLowerCase();
-        loveCount += (lowerResponse.match(/love/g) || []).length;
-        happyCount += (lowerResponse.match(/happy/g) || []).length;
-    });
-
-    responseText.innerHTML = `You mentioned "love" ${loveCount} times and "happy" ${happyCount} times.`;
-
-    // Show the response page
-    questionsPage.style.display = 'none';
-    responsePage.style.display = 'block';
-});
-</script>
-
+    <header class="hero-section">
+        <nav>
+            <ul>
+                <li><a href="contact.html">Contact</a></li> <!-- Only Contact button -->
+            </ul>
+        </nav>
+        <div class="hero-content">
+            <h1>WELCOME TO PRASHANT'S HOME PAGE</h1>
+            <p>WANNA RIDE TO MY WORLD!!???</p>
+            <a href="blank.html" class="cta-button">LET'S GO</a>
+        </div>
+        <div class="scroll-indicator">
+            <p>Scroll Down</p>
+            <span></span>
+        </div>
+    </header>
+    <section class="content">
+        <!-- Future sections will go here -->
+    </section>
+    <footer>
+        <p>&copy; 2024 Masterpiece. All Rights Reserved.</p>
+    </footer>
 </body>
 </html>
