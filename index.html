@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lovely Romantic Game</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #fddde6;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-image: url('https://example.com/lovely-background.jpg'); /* Use any romantic background image URL */
+            background-size: cover;
+            background-position: center;
+        }
+
+        h1, h2 {
+            font-family: 'Dancing Script', cursive; /* Elegant romantic font */
+            color: #ff6b81;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 3em;
+        }
+
+        h2 {
+            font-size: 1.8em;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1.5em;
+            background-color: #ff6b81;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        button:hover {
+            background-color: #ff4757;
+        }
+
+        /* Lovely bubble-shaped input fields */
+        .input-group {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+            align-items: center;
+        }
+
+        .input-group label {
+            flex: 1;
+            text-align: left;
+            margin-right: 20px;
+            color: #ff6b81;
+            font-size: 1.2em;
+        }
+
+        .input-group input {
+            flex: 2;
+            padding: 10px;
+            border-radius: 50px;
+            border: 2px solid #ff6b81;
+            font-size: 1em;
+            text-align: center;
+            background-color: #ffe4e9;
+        }
+
+        #done-btn {
+            margin-top: 30px;
+            padding: 15px 30px;
+        }
+
+        /* Stickers */
+        .sticker {
+            position: absolute;
+            width: 100px;
+            height: auto;
+        }
+
+        /* Stickers for Landing Page */
+        #landing.active .sticker {
+            display: block;
+        }
+        #sticker1-landing { top: 10%; left: 10%; transform: rotate(-15deg); }
+        #sticker2-landing { top: 10%; right: 10%; transform: rotate(15deg); }
+        #sticker3-landing { bottom: 10%; left: 15%; transform: rotate(-10deg); }
+        #sticker4-landing { bottom: 10%; right: 15%; transform: rotate(10deg); }
+
+        /* Stickers for Questions Page */
+        #questions-page.active .sticker {
+            display: block;
+        }
+        #sticker1-questions { bottom: 10%; left: 20%; transform: rotate(-10deg); }
+        #sticker2-questions { bottom: 10%; left: 45%; transform: rotate(0deg); }
+        #sticker3-questions { bottom: 10%; right: 20%; transform: rotate(10deg); }
+
+        /* Stickers for Response Page */
+        #response-page.active .sticker {
+            display: block;
+        }
+
+        /* Sticker at the bottom for the Response Page */
+        #response-bottom-sticker {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: auto;
+        }
+
+        /* Page Visibility */
+        #landing, #questions-page, #response-page {
+            display: none;
+        }
+
+        #landing {
+            display: block;
+            margin-top: 20%;
+        }
+
+        /* Response Page Styling */
+        #response-page h1 {
+            font-family: 'Dancing Script', cursive;
+            color: #ff6b81;
+        }
+
+        /* Styling the response text to match the h1 on the Response Page */
+        #response-text {
+            font-family: 'Dancing Script', cursive;
+            color: #ff6b81;
+            font-size: 2em;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Landing Page -->
+<div id="landing">
+    <h1>Yoo sup!!!</h1>
+    <h2>Let's begin the game!?</h2>
+    <button id="yes-btn">Yes lesgo!!</button>
+    <button id="no-btn">Nahh nope</button>
+
+    <!-- 4 Romantic Stickers for Landing Page -->
+    <img src="https://cdn-icons-png.flaticon.com/256/4288/4288991.png" class="sticker" id="sticker1-landing" alt="Couple Sticker 1">
+    <img src="https://cdn-icons-png.flaticon.com/256/4289/4289001.png" class="sticker" id="sticker2-landing" alt="Couple Sticker 2">
+    <img src="https://cdn-icons-png.flaticon.com/256/4289/4289414.png" class="sticker" id="sticker3-landing" alt="Couple Sticker 3">
+    <img src="https://cdn-icons-png.flaticon.com/256/4289/4289416.png" class="sticker" id="sticker4-landing" alt="Couple Sticker 4">
+</div>
+
+<!-- Questions Page -->
+<div id="questions-page">
+    <h1>Answer these romantic questions!</h1>
+    <div class="input-group">
+        <label for="q1">1. What is my full name!?</label>
+        <input type="text" id="q1" placeholder="Type here...">
+    </div>
+    <div class="input-group">
+        <label for="q2">2. What do you think about me!?</label>
+        <input type="text" id="q2" placeholder="Type here...">
+    </div>
+    <div class="input-group">
+        <label for="q3">3. How many months are we together!?</label>
+        <input type="text" id="q3" placeholder="Type here...">
+    </div>
+    <div class="input-group">
+        <label for="q4">4. Do you feel happy!? 💖</label>
+        <input type="text" id="q4" placeholder="Type here...">
+    </div>
+    <div class="input-group">
+        <label for="q5">5. What makes you smile the most!?</label>
+        <input type="text" id="q5" placeholder="Type here...">
+    </div>
+    <button id="done-btn">Done</button>
+
+    <!-- 3 Romantic Stickers for Questions Page -->
+    <img src="https://cdn-icons-png.flaticon.com/256/4288/4288991.png" class="sticker" id="sticker1-questions" alt="Sticker 1">
+    <img src="https://cdn-icons-png.flaticon.com/256/4289/4289001.png" class="sticker" id="sticker2-questions" alt="Sticker 2">
+    <img src="https://cdn-icons-png.flaticon.com/256/4289/4289414.png" class="sticker" id="sticker3-questions" alt="Sticker 3">
+</div>
+
+<!-- Response Page -->
+<div id="response-page">
+    <h1>Here are your responses!</h1>
+    <p id="response-text"></p>
+
+    <!-- Sticker at the bottom -->
+    <img src="https://cdn-icons-png.flaticon.com/256/4289/4289416.png" class="sticker" id="response-bottom-sticker" alt="Sticker Bottom">
+</div>
+
+<script>
+// Landing Page Buttons
+const yesBtn = document.getElementById('yes-btn');
+const noBtn = document.getElementById('no-btn');
+const landingDiv = document.getElementById('landing');
+const questionsPage = document.getElementById('questions-page');
+const responsePage = document.getElementById('response-page');
+const doneBtn = document.getElementById('done-btn');
+const responseText = document.getElementById('response-text');
+
+// Randomize "Nahh nope" button position
+noBtn.addEventListener('mouseover', function() {
+    const randomX = Math.random() * (window.innerWidth - noBtn.clientWidth);
+    const randomY = Math.random() * (window.innerHeight - noBtn.clientHeight);
+    noBtn.style.position = 'absolute';
+    noBtn.style.left = `${randomX}px`;
+    noBtn.style.top = `${randomY}px`;
+});
+
+// "Yes lesgo!!" button - Move to Questions Page
+yesBtn.addEventListener('click', function() {
+    landingDiv.style.display = 'none';
+    questionsPage.style.display = 'block';
+});
+
+// "Done" button - Move to Response Page
+doneBtn.addEventListener('click', function() {
+    const responses = [
+        document.getElementById('q1').value,
+        document.getElementById('q2').value,
+        document.getElementById('q3').value,
+        document.getElementById('q4').value,
+        document.getElementById('q5').value
+    ];
+
+    let loveCount = 0;
+    let happyCount = 0;
+
+    responses.forEach(response => {
+        const lowerResponse = response.toLowerCase();
+        loveCount += (lowerResponse.match(/love/g) || []).length;
+        happyCount += (lowerResponse.match(/happy/g) || []).length;
+    });
+
+    responseText.innerHTML = `You mentioned "love" ${loveCount} times and "happy" ${happyCount} times.`;
+
+    // Show the response page
+    questionsPage.style.display = 'none';
+    responsePage.style.display = 'block';
+});
+</script>
+
+</body>
+</html>
