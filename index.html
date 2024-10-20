@@ -13,9 +13,6 @@
             color: #333;
             position: relative;
             overflow: hidden;
-            width: 1024px; /* Fixed width */
-            height: 768px; /* Fixed height */
-            margin: auto; /* Center the fixed size container */
         }
 
         header {
@@ -28,9 +25,9 @@
 
         main {
             padding: 20px;
+            max-width: 800px;
+            margin: auto; /* Centering the content */
             position: relative; /* To position floating stickers correctly */
-            height: calc(100% - 100px); /* Subtract header and footer height */
-            overflow: hidden; /* Prevent scrolling */
         }
 
         .biography {
@@ -85,8 +82,7 @@
 
         .sticker {
             position: absolute;
-            width: 50px; /* Fixed size for stickers */
-            height: 50px; /* Fixed height for stickers */
+            width: 50px; 
             z-index: 2; /* Make sure stickers are above other elements */
             pointer-events: auto; /* Allow mouse events on stickers */
             cursor: pointer; /* Change cursor to pointer on hover */
@@ -101,9 +97,9 @@
 
         .social-icon {
             position: fixed; /* Fix the icon to the window */
-            bottom: 20px; /* Position it near the bottom */
+            bottom: 40px; /* Position it near the bottom */
             right: 20px; /* Align to the right */
-            width: 60px; /* Size of the icon */
+            width: 50px; /* Size of the icon */
             cursor: pointer; /* Pointer cursor */
             z-index: 3; /* Ensure it is above other content */
         }
@@ -141,16 +137,16 @@
     <main>
         <section class="biography">
             <h2>About Shramanaa</h2>
-            <p>Hi! I'm Shramanaa. I'm passionate about painting and exploring new places. I love to laugh, dance, and enjoy the little things in life. This website is a little corner dedicated to sharing my journey and the love I have for life!</p>
-            <p>Here, you can find my favorite memories captured in photos, and a few little surprises along the way. I hope you enjoy this journey with me!</p>
+            <p>Hi! I'm Shramanaa. I'm passionate about singing and exploring new places. I love to laugh, dance, and enjoy the little things in life. This website is a little corner dedicated to sharing my journey and the love I have for life!</p>
+            <p>Here, you can find my favorite memories captured in photos, and a few little surprises along the way. I hope you enjoy this journey with me!  ( hope you like this :3 )</p>
         </section>
 
         <section class="photos">
             <h2>Photos</h2>
             <div class="photo-gallery">
-                <img src="https://i.postimg.cc/RFbJ79QS/IMG-20240819-WA0033.jpg" alt="Shramanaa - Photo 1">
-                <img src="https://i.imgur.com/eopfqPd.jpeg" alt="Shramanaa - Photo 2">
-                <img src="https://www.imghippo.com/i/6sm801729450294.png" alt="Shramanaa - Photo 3">
+                <img src="WhatsApp Image 2024-10-21 at 1.04.18 AM.jpeg" alt="Shramanaa - Photo 1">
+                <img src="WhatsApp Image 2024-10-21 at 1.04.18 AM (1).jpeg" alt="Shramanaa - Photo 2">
+                <img src="WhatsApp Image 2024-10-21 at 1.04.17 AM.jpeg" alt="Shramanaa - Photo 3">
             </div>
         </section>
 
@@ -169,7 +165,7 @@
     </main>
 
     <footer>
-        <p>Created with ❤️ by Prashant for Shramanaa</p>
+        <p>Created with ❤ by Prashant for Shramanaa</p>
     </footer>
 
     <script>
@@ -178,8 +174,8 @@
 
         // Position stickers randomly
         stickers.forEach(sticker => {
-            const randomX = Math.random() * (1024 - 60); // 60 for sticker width + margin
-            const randomY = Math.random() * (768 - 60); // 60 for sticker height + margin
+            const randomX = Math.random() * (window.innerWidth - 60); // 60 for sticker width + margin
+            const randomY = Math.random() * (window.innerHeight - 60); // 60 for sticker height + margin
             sticker.style.left = `${randomX}px`;
             sticker.style.top = `${randomY}px`;
 
