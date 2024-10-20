@@ -103,6 +103,30 @@
             cursor: pointer; /* Pointer cursor */
             z-index: 3; /* Ensure it is above other content */
         }
+
+        /* Mobile Styles */
+        @media (max-width: 600px) {
+            .biography h2 {
+                font-size: 1.5em; /* Smaller heading on mobile */
+            }
+
+            .biography p {
+                font-size: 1em; /* Smaller paragraph text on mobile */
+            }
+
+            .photo-gallery img {
+                width: 100%; /* Full width images on mobile */
+                margin-bottom: 10px; /* Less margin between images */
+            }
+
+            .sticker {
+                width: 40px; /* Smaller stickers on mobile */
+            }
+
+            .social-icon {
+                width: 50px; /* Smaller social icon on mobile */
+            }
+        }
     </style>
 </head>
 <body>
@@ -120,9 +144,9 @@
         <section class="photos">
             <h2>Photos</h2>
             <div class="photo-gallery">
-                <img src="WhatsApp Image 2024-10-21 at 1.04.17 AM.jpeg" alt="Shramanaa - Photo 1">
-                <img src="WhatsApp Image 2024-10-21 at 1.04.18 AM (1).jpeg" alt="Shramanaa - Photo 2">
-                <img src="WhatsApp Image 2024-10-21 at 1.04.18 AM.jpeg" alt="Shramanaa - Photo 3">
+                <img src="https://i.postimg.cc/RFbJ79QS/IMG-20240819-WA0033.jpg" alt="Shramanaa - Photo 1">
+                <img src="https://i.imgur.com/eopfqPd.jpeg" alt="Shramanaa - Photo 2">
+                <img src="https://www.imghippo.com/i/6sm801729450294.png" alt="Shramanaa - Photo 3">
             </div>
         </section>
 
