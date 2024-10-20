@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shramanaa's Biography</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffebee; /* Soft pink background */
+            color: #333;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header {
+            background-color: #ff6f61; /* Romantic color */
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 5px solid #d45d00; /* Border for emphasis */
+        }
+
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto; /* Centering the content */
+            position: relative; /* To position floating stickers correctly */
+        }
+
+        .biography {
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+            background-color: rgba(255, 255, 255, 0.9); /* White background with slight transparency */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+        }
+
+        .biography h2 {
+            font-family: 'Georgia', serif; 
+            font-size: 2em;
+            color: #d45d00; 
+        }
+
+        .biography p {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        .photo-gallery {
+            position: relative;
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap; /* Allow images to wrap */
+            justify-content: space-between;
+        }
+
+        .photo-gallery img {
+            border-radius: 10px;
+            width: 30%;
+            margin-bottom: 20px;
+            transition: transform 0.3s, box-shadow 0.3s; /* Add shadow on hover */
+        }
+
+        .photo-gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #ff6f61;
+            color: white;
+            position: relative;
+            margin-top: 30px;
+        }
+
+        .sticker {
+            position: absolute;
+            width: 50px; 
+            z-index: 2; /* Make sure stickers are above other elements */
+            animation: float 3s ease-in-out infinite; /* Floating animation */
+        }
+
+        .sticker1 { top: 20%; left: 5%; animation-duration: 4s; }
+        .sticker2 { top: 40%; left: 80%; transform: rotate(-20deg); }
+        .sticker3 { top: 30%; left: 40%; }
+        .sticker4 { top: 60%; left: 20%; }
+        .sticker5 { top: 10%; left: 70%; transform: rotate(15deg); }
+        .sticker6 { top: 50%; left: 10%; transform: rotate(-10deg); }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Shramanaa's Biography</h1>
+    </header>
+    
+    <main>
+        <section class="biography">
+            <h2>About Shramanaa</h2>
+            <p>Hi! I'm Shramanaa. I'm passionate about painting and exploring new places. I love to laugh, dance, and enjoy the little things in life. This website is a little corner dedicated to sharing my journey and the love I have for life!</p>
+            <p>Here, you can find my favorite memories captured in photos, and a few little surprises along the way. I hope you enjoy this journey with me!</p>
+        </section>
+
+        <section class="photos">
+            <h2>Photos</h2>
+            <div class="photo-gallery">
+                <img src="https://i.postimg.cc/RFbJ79QS/IMG-20240819-WA0033.jpg" alt="Shramanaa - Photo 1">
+                <img src="https://i.imgur.com/eopfqPd.jpeg" alt="Shramanaa - Photo 2">
+                <img src="https://www.imghippo.com/i/6sm801729450294.png" alt="Shramanaa - Photo 3">
+            </div>
+        </section>
+
+        <!-- Stickers -->
+        <img src="https://cdn-icons-png.flaticon.com/512/18003/18003528.png" alt="Sticker 1" class="sticker sticker1">
+        <img src="https://cdn-icons-png.flaticon.com/512/18003/18003537.png" alt="Sticker 2" class="sticker sticker2">
+        <img src="https://cdn-icons-png.flaticon.com/512/18003/18003499.png" alt="Sticker 3" class="sticker sticker3">
+        <img src="https://cdn-icons-png.flaticon.com/512/18003/18003475.png" alt="Sticker 4" class="sticker sticker4">
+        <img src="https://cdn-icons-png.flaticon.com/512/18003/18003530.png" alt="Sticker 5" class="sticker sticker5">
+        <img src="https://cdn-icons-png.flaticon.com/512/18003/18003528.png" alt="Sticker 6" class="sticker sticker6">
+    </main>
+
+    <footer>
+        <p>Created with ❤️ by Prashant for Shramanaa</p>
+    </footer>
+</body>
+</html>
