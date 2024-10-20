@@ -84,15 +84,10 @@
             position: absolute;
             width: 50px; 
             z-index: 2; /* Make sure stickers are above other elements */
+            pointer-events: auto; /* Allow mouse events on stickers */
+            cursor: pointer; /* Change cursor to pointer on hover */
             animation: float 3s ease-in-out infinite; /* Floating animation */
         }
-
-        .sticker1 { top: 20%; left: 5%; animation-duration: 4s; }
-        .sticker2 { top: 40%; left: 80%; transform: rotate(-20deg); }
-        .sticker3 { top: 30%; left: 30%; }
-        .sticker4 { top: 60%; left: 20%; }
-        .sticker5 { top: 10%; left: 90%; transform: rotate(15deg); }
-        .sticker6 { top: 50%; left: 10%; transform: rotate(-10deg); }
 
         @keyframes float {
             0% { transform: translateY(0); }
@@ -116,9 +111,9 @@
         <section class="photos">
             <h2>Photos</h2>
             <div class="photo-gallery">
-                <img src="WhatsApp Image 2024-10-21 at 1.04.18 AM.jpeg" alt="Shramanaa - Photo 1">
+                <img src="WhatsApp Image 2024-10-21 at 1.04.17 AM.jpeg" alt="Shramanaa - Photo 1">
                 <img src="WhatsApp Image 2024-10-21 at 1.04.18 AM (1).jpeg" alt="Shramanaa - Photo 2">
-                <img src="WhatsApp Image 2024-10-21 at 1.04.17 AM.jpeg" alt="Shramanaa - Photo 3">
+                <img src="WhatsApp Image 2024-10-21 at 1.04.18 AM.jpeg" alt="Shramanaa - Photo 3">
             </div>
         </section>
 
@@ -134,5 +129,35 @@
     <footer>
         <p>Created with ❤️ by Prashant for Shramanaa</p>
     </footer>
+
+    <script>
+        const stickers = document.querySelectorAll('.sticker');
+        let selectedSticker = null; // Variable to track the currently selected sticker
+
+        // Position stickers randomly
+        stickers.forEach(sticker => {
+            const randomX = Math.random() * (window.innerWidth - 60); // 60 for sticker width + margin
+            const randomY = Math.random() * (window.innerHeight - 60); // 60 for sticker height + margin
+            sticker.style.left = `${randomX}px`;
+            sticker.style.top = `${randomY}px`;
+
+            // Add event listeners to each sticker
+            sticker.addEventListener('click', () => {
+                selectedSticker = sticker; // Set the selected sticker
+            });
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (selectedSticker) {
+                selectedSticker.style.left = `${e.clientX - 25}px`; // Center the sticker at the cursor
+                selectedSticker.style.top = `${e.clientY - 25}px`; // Center the sticker at the cursor
+            }
+        });
+
+        // Reset selected sticker on mouseup
+        document.addEventListener('mouseup', () => {
+            selectedSticker = null; // Deselect the sticker
+        });
+    </script>
 </body>
 </html>
